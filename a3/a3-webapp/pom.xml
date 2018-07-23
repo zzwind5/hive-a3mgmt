@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <artifactId>hac</artifactId>
+    <artifactId>a3</artifactId>
     <groupId>com.aerohive.nms</groupId>
     <version>${revision}</version>
   </parent>
@@ -88,7 +88,7 @@
       </dependency>
       <dependency>
         <groupId>com.aerohive.nms</groupId>
-        <artifactId>hac-intf</artifactId>
+        <artifactId>a3-intf</artifactId>
         <version>${project.version}</version>
       </dependency>
     </dependencies>
@@ -179,7 +179,7 @@
     </dependency>
     <dependency>
       <groupId>com.aerohive.nms</groupId>
-      <artifactId>hac-intf</artifactId>
+      <artifactId>a3-intf</artifactId>
     </dependency>
     <dependency>
       <groupId>org.jolokia</groupId>

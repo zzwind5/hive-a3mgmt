@@ -4,3 +4,6 @@ target
 .DS_Store
 logs
 rebel*.xml
+.project
+.settings
+.classpath
