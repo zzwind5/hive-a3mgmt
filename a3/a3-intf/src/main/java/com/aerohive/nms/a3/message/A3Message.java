@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-
 /**
  * The base class of A3 message.
  * <p>
@@ -21,4 +20,6 @@ public abstract class A3Message implements Serializable {
 	private String msgIdentifier;
 	
 	private String agentId;
+	
+	private String clusterId;
 }
