@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+  <!--
+      HacSwitchAlarmEventMessage is defined by legacy HAC. It has a field named timestamp,
+      and it inherits a field named timeStamp (note the capital 'S'). Findbugs complains
+      about this, and rightfully so. However, to ensure interoperability, we are not
+      changing its structure or field names. So, we'll have to live with this for now.
+    -->
+  <Match>
+    <Class name="com.aerohive.nms.hac.message.outbound.HacSwitchAlarmEventMessage" />
+    <Bug pattern="NM_VERY_CONFUSING" />
+  </Match>
+</FindBugsFilter>
