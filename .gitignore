@@ -7,3 +7,4 @@ rebel*.xml
 .project
 .settings
 .classpath
+.flattened-pom.xml
