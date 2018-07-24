@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.async.DeferredResult;
 
+import com.aerohive.nms.a3.communicator.service.MessageCacheService;
 import com.aerohive.nms.a3.message.A3Message;
 
 import lombok.extern.slf4j.Slf4j;
@@ -18,6 +19,9 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequestMapping("/a3/rest/v1/poll/{sn}")
 public class PollController {
+	
+	@Autowired
+	private MessageCacheService cacheService;
 	
 
 	@RequestMapping(method = GET, produces = APPLICATION_JSON_VALUE)
