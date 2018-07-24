@@ -10,5 +10,5 @@ public interface MessageCacheService {
 	
 	public boolean cacheMessage(A3Message message);
 	
-	public List<A3Message> getMessages(String key);
+	public List<String> getAllMessages(String key);
 }

@@ -18,13 +18,12 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequestMapping("/a3/rest/v1/poll/{sn}")
 public class PollController {
+	
 
 	@RequestMapping(method = GET, produces = APPLICATION_JSON_VALUE)
 	public DeferredResult<List<A3Message>> handlePollingRequest(@PathVariable final String sn) {
 		log.trace("<{}> Received query for work items", sn);
-
-		pollingMeter.mark();
-
-		return configService.getPendingRequests(sn);
+		
+		return null;
 	}
 }
