@@ -21,6 +21,8 @@ public class MessageCacheServiceImpl implements MessageCacheService {
 	
 	private static final String MESSAGE_CACHED_KEY = "A3.messages.list.{key}";
 	
+	private static final String AGENT_ACTIVE_TIME_KEY = "A3.last.active_time.{key}";
+	
 	@Autowired
 	private StringRedisTemplate redisTemplate;
 	
@@ -61,7 +63,7 @@ public class MessageCacheServiceImpl implements MessageCacheService {
 	
 	private String getCacheKey(A3Message message) {
 		String key = StringUtils.isEmpty(message.getClusterId()) == false ? 
-				message.getClusterId() : message.getAgentId();
+				message.getClusterId() : message.getSysId();
 				
 		return getCacheKey(key);
 	}

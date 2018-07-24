@@ -15,7 +15,7 @@ public class A3ResponseMessage extends A3Message {
 	
 	private boolean successful;
 	
-	private String desc;
+	private String errorMsg;
 	
 	private A3Message data;
 	

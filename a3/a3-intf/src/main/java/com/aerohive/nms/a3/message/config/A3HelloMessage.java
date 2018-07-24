@@ -12,5 +12,7 @@ import lombok.ToString;
 public class A3HelloMessage extends A3RequestMessage {
 	
 	private static final long serialVersionUID = 1L;
+	
+	private String desc;
 
 }

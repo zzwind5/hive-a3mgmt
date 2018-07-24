@@ -4,6 +4,8 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +30,7 @@ public class MessageController {
 	}
 
 	@RequestMapping(value="/push",method = POST)
-	public String pushMessage(@RequestBody A3Message messages) {
+	public String pushMessage(@RequestBody List<A3Message> messages) {
 		cacheService.cacheMessage(messages);
 		return "successfully";
 	}

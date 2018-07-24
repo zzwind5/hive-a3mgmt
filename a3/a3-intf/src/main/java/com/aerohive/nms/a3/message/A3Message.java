@@ -17,17 +17,18 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME,include = JsonTypeInfo.As.PROPERTY,property = "msgIdentifier")  
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME,include = JsonTypeInfo.As.PROPERTY,property = "msgType")  
 @JsonSubTypes({
-	@JsonSubTypes.Type(value=A3HelloMessage.class,name = "hello"),
+	@JsonSubTypes.Type(value=A3HelloMessage.class, name = "hello"),
+	@JsonSubTypes.Type(value=A3ResponseMessage.class, name = "synResp"),
 })  
 public abstract class A3Message implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
-	private String msgIdentifier;
+	private String msgType;
 	
-	private String agentId;
+	private String sysId;
 	
 	private String clusterId;
 }
