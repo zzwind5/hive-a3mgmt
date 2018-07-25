@@ -17,6 +17,7 @@ import org.springframework.web.context.request.async.DeferredResult;
 import com.aerohive.nms.a3.communicator.handler.MessageSendHandler;
 import com.aerohive.nms.a3.communicator.service.MessageReceiveService;
 import com.aerohive.nms.a3.message.A3Message;
+import com.aerohive.nms.a3.message.A3RequestMessage;
 import com.aerohive.nms.a3.message.A3ResponseMessage;
 
 import lombok.extern.slf4j.Slf4j;
@@ -32,18 +33,18 @@ public class MessageReceiveController {
 	private MessageSendHandler sender;
 	
 	@RequestMapping(value="/hello", method = GET, produces = APPLICATION_JSON_VALUE)
-	public String hello() {
+	public ResponseEntity<Void> hello() {
 		A3ResponseMessage msg = new A3ResponseMessage();
 		msg.setErrorMsg("aaaahhhhafda");
 		sender.broadcastMessageResult(msg);
-		return "Hello";
+		return new ResponseEntity<>(OK);
 	}
 	
 	@RequestMapping(value="/push/syn",method = POST)
-	public DeferredResult<String> synMessagepush(@RequestBody List<A3Message> messages) {
-		
-		msgReceiveService.synMessageProcess(messages);
-		return null;
+	public DeferredResult<String> synMessagepush(@RequestBody A3RequestMessage messages) {
+		DeferredResult<String> result = new DeferredResult<String>();
+		msgReceiveService.synMessageProcess(messages, result);
+		return result;
 	}
 
 	@RequestMapping(value="/push/asyn",method = POST)

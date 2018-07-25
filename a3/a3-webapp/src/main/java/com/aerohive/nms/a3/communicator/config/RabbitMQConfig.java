@@ -35,11 +35,12 @@ public class RabbitMQConfig {
 	}
 	
 	@Bean
-	public SimpleMessageListenerContainer listenerContainer(ConnectionFactory connectionFactory) {
+	public SimpleMessageListenerContainer listenerContainer(ConnectionFactory connectionFactory,
+			SynMessageResultListener synMessageResultListener) {
 		SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
 		container.setConnectionFactory(connectionFactory);
 		container.setQueueNames(SYN_RESULT_BROADCAST_QUEUE);
-		container.setMessageListener(new SynMessageResultListener());
+		container.setMessageListener(synMessageResultListener);
 		return container;
 	}
 }
