@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.aerohive.nms.a3.communicator.service.MessageCacheService;
+import com.aerohive.nms.a3.communicator.service.A3PollingService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -22,14 +22,13 @@ import lombok.extern.slf4j.Slf4j;
 public class PollController {
 	
 	@Autowired
-	private MessageCacheService cacheService;
-	
+	private A3PollingService pollingService;
 
 	@RequestMapping(method = GET, produces = APPLICATION_JSON_VALUE)
 	public List<String> handlePollingRequest(@PathVariable final String sysId,
 			@RequestParam final String clustId) {
 		
 		String key = StringUtils.isEmpty(clustId) == false ? clustId : sysId;
-		return cacheService.getAllMessages(key);
+		return pollingService.getAllMessages(key);
 	}
 }

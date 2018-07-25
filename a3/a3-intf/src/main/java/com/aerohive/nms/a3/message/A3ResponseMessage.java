@@ -2,9 +2,11 @@ package com.aerohive.nms.a3.message;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 public class A3ResponseMessage extends A3Message {
@@ -21,6 +23,7 @@ public class A3ResponseMessage extends A3Message {
 	
 	public A3ResponseMessage(A3RequestMessage requestMsg) {
 		this.setSequenceId(requestMsg.getSequenceId());
-		this.setAgentId(requestMsg.getAgentId());
+		this.setSysId(requestMsg.getSysId());
+		this.setClusterId(requestMsg.getClusterId());
 	}
 }
