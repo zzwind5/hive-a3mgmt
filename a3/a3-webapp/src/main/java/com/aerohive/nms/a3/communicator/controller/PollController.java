@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.aerohive.nms.a3.communicator.handler.MessageSendHandler;
 import com.aerohive.nms.a3.communicator.service.A3PollingService;
 import com.aerohive.nms.a3.message.A3Message;
 
@@ -31,7 +32,7 @@ public class PollController {
 
 	@GetMapping(value="/poll/{sysId}", produces = APPLICATION_JSON_VALUE)
 	public List<String> handlePollingRequest(@PathVariable final String sysId,
-			@RequestParam final String clustId) {
+			@RequestParam(required = false) final String clustId) {
 		
 		String key = StringUtils.isEmpty(clustId) == false ? clustId : sysId;
 		return pollingService.getAllMessages(key);
@@ -41,7 +42,7 @@ public class PollController {
 	public ResponseEntity<Void> handleReportMessage(@PathVariable final String sysId,
 			@RequestBody List<A3Message> messages) {
 		
-//		String key = StringUtils.isEmpty(clustId) == false ? clustId : sysId;
+		pollingService.handleMessage(messages);
 		return new ResponseEntity<>(OK);
 	}
 }

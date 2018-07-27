@@ -26,6 +26,8 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequestMapping("/a3/rest/message")
 public class MessageReceiveController {
+	
+	private static final long SYN_REQUEST_TIMEOUT = 1000 * 60 * 5;
 
 	@Autowired
 	private MessageReceiveService msgReceiveService;
@@ -42,7 +44,7 @@ public class MessageReceiveController {
 	
 	@RequestMapping(value="/push/syn",method = POST)
 	public DeferredResult<String> synMessagepush(@RequestBody A3RequestMessage messages) {
-		DeferredResult<String> result = new DeferredResult<String>();
+		DeferredResult<String> result = new DeferredResult<String>(SYN_REQUEST_TIMEOUT);
 		msgReceiveService.synMessageProcess(messages, result);
 		return result;
 	}

@@ -30,7 +30,7 @@ public class A3PollingServiceImpl implements A3PollingService {
 			return;
 		}
 		
-		messages.stream().forEach(item -> handleMessage(item));
+		messages.stream().forEach(msg -> handleMessage(msg));
 	}
 	
 	

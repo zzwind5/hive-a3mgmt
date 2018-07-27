@@ -20,12 +20,11 @@ public class SynRequestCache {
 			return;
 		}
 		
-		DeferredResult<String> cacheObj = cacheMap.get(key);
+		DeferredResult<String> cacheObj = cacheMap.remove(key);
 		if (cacheObj == null) {
 			return;
+		} else {
+			cacheObj.setResult(result);
 		}
-		
-		cacheObj.setResult(result);
-		cacheMap.remove(key);
 	}
 }
