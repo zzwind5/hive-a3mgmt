@@ -24,7 +24,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@RequestMapping("/a3/rest/message")
+@RequestMapping("/rest/message")
 public class MessageReceiveController {
 	
 	private static final long SYN_REQUEST_TIMEOUT = 1000 * 60 * 5;

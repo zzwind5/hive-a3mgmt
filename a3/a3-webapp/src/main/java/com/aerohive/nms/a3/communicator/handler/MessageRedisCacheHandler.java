@@ -16,7 +16,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class MessageRedisCacheHandler {
 
 	private static final String MESSAGE_CACHED_KEY = "A3.messages.list.{key}";
-	private static final String AGENT_ACTIVE_TIME_KEY = "A3.last.active_time.{key}";
 	
 	@Autowired
 	private StringRedisTemplate redisTemplate;

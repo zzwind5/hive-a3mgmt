@@ -24,7 +24,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@RequestMapping("/a3/rest/v1")
+@RequestMapping("/rest/v1")
 public class PollController {
 	
 	@Autowired
